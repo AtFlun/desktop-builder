@@ -1,5 +1,9 @@
 ﻿# 变更日志
 
+## [6.6.5] - 2026-11-20 21:40
+### 优化
+- 优化了一些细节;
+
 ## [6.6.4] - 2026-11-20 20:52
 ### 修复
 - 修复 `nativeModules.npmRebuild` 合并 `allowScripts` 的块未受重装条件约束的问题:该块此前写在重装判断之外,
@@ -17,7 +21,3 @@
 - `nativeModules.npmRebuild` 开启时,安装依赖前扫描用户项目 `node_modules`(含 `@scope` 子目录)中带 `binding.gyp` 的包,
   无条件并入根 `package.json` 的 `allowScripts`,使 `npm install` 放行其 install 脚本;传递依赖中的原生模块(如 `bcrypt`)一并覆盖;
 - 仅在确有新增时回写,并打印绿色提示 `原生模块[<包名>, ...]无条件加入allowScripts白名单`,多个模块合并为一行、逗号分隔;
-
-## [6.6.2] - 2026-11-13 20:37
-### 更新
-- 依赖包更新;
