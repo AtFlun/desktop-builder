@@ -351,7 +351,36 @@ const build = async () => {
     }
     else console.log(chalk.gray('[信息] ' + (thisOptimize ? '重新安装依赖+优化' : '重新安装依赖')
         + '(原因: 缓存快照缺失)'));
-
+    // 开关开启时,安装前并入原生模板 allowScripts,使 npm install 放行带 binding.gyp 包的 install 脚本
+    if (npmRebuildCfg) {
+        try {
+            const srcNmDir = path.join(process.cwd(), 'node_modules'),
+                rootPkgPre = await fs.pathExists(rootPkgPath) ? await fs.readJson(rootPkgPath) : pkgJson,
+                sc = configAllowScripts, added = [],
+                allow = (sc && typeof sc === 'object' && !Array.isArray(sc)) ? { ...sc } : { node: true };
+            if (await fs.pathExists(srcNmDir)) {
+                for (const entry of await fs.readdir(srcNmDir)) {
+                    if (entry.startsWith('.')) continue;
+                    if (entry.startsWith('@')) {
+                        for (const sub of await fs.readdir(path.join(srcNmDir, entry))) {
+                            const subName = entry + '/' + sub;
+                            if (allow[subName] !== true && await fs.pathExists(path.join(srcNmDir, subName, 'binding.gyp')))
+                                allow[subName] = true, added.push(subName);
+                        }
+                    }
+                    else if (allow[entry] !== true && await fs.pathExists(path.join(srcNmDir, entry, 'binding.gyp')))
+                        allow[entry] = true, added.push(entry);
+                }
+            }
+            if (added.length) {
+                rootPkgPre.allowScripts = allow;
+                await fs.writeJson(rootPkgPath, rootPkgPre, { spaces: 2 });
+                console.log(chalk.green('    原生模块[' + added.join(', ') + ']无条件加入allowScripts白名单'));
+            }
+        } catch (err) {
+            console.error(chalk.yellow('[警告] 合并原生模板 allowScripts 失败: ' + err.message));
+        }
+    }
     if (shouldInstall) {
         console.log(chalk.cyan('[信息] 正在安装依赖...')), await fs.remove(path.join(tempDir, 'node_modules'));
         // 安装前先删除快照:若安装过程中断,快照缺失会触发下次强制重装
