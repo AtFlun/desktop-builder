@@ -249,7 +249,7 @@ const desktopAppConfig = {
 			useSetupLdr: true,                     // true=使用 SetupLdr 引导程序(处理 UAC 和系统版本检查)
 			// *** 更多字段请自行根据官网添加 ***
 			// 官方文档: https://jrsoftware.org/ishelp/index.php?topic=setup
-			// 本人整理的中文文档:https://gitee.com/OpenFlun/inno-setup
+			// 本人整理的中文文档:https://gitee.com/AtFlun/inno-setup
 		},
 
 		// macOS 配置

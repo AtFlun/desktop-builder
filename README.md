@@ -125,7 +125,7 @@ asar 用**虚拟归档**实现,牺牲了 Node.js 子进程的读取能力--**它
 
 ### 下载依赖(Windows)
   - 官网:https://jrsoftware.org/isdl.php
-  - 中国 https://gitee.com/OpenFlun/inno-setup/releases
+  - 中国 https://gitee.com/AtFlun/inno-setup/releases
 
 1. 大部分情况下无需手动下载,构建时自动下载安装;
 2. 安装版手动安装时一定要选择默认安装路径,不然会因为找不到文件而构建失败;
@@ -162,7 +162,7 @@ desktop-builder help           # 查看用法
 | ---------------------- | -------------------------------------------------------- |
 | `build`                | 构建桌面应用,产物输出到 `build.outputDir`(默认 `./dist`) |
 | `example`              | 生成 desktopAppConfig.js 与 build/ 到项目根目录          |
-| `clean`                | 清理临时构建目录                                           |
+| `clean`                | 清理临时构建目录                                         |
 | `--debug`              | 输出详细日志,便于排查构建问题                            |
 | `--help`、`-h`、`help` | 显示用法                                                 |
 
@@ -1198,12 +1198,12 @@ ISC © 2026, flun
 ## 贡献
 
 欢迎提交 Issue 和 Pull Request;
-项目地址:[github](https://github.com/OpenFlun/desktop-builder)
-中国镜像:[gitee](https://gitee.com/OpenFlun/desktop-builder)
+项目地址:[github](https://github.com/AtFlun/desktop-builder)
+中国镜像:[gitee](https://gitee.com/AtFlun/desktop-builder)
 
 [npm-version-img]: https://img.shields.io/npm/v/@flun/desktop-builder.svg
 [npm-package-url]: https://www.npmjs.com/package/@flun/desktop-builder
 [license-img]: https://img.shields.io/npm/l/@flun/desktop-builder.svg
-[license-url]: https://github.com/OpenFlun/desktop-builder/blob/main/LICENSE
+[license-url]: https://github.com/AtFlun/desktop-builder/blob/main/LICENSE
 [node-img]: https://img.shields.io/node/v/@flun/desktop-builder.svg
 [node-url]: https://nodejs.org

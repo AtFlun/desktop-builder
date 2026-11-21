@@ -28,15 +28,15 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OpenFlun/desktop-builder.git"
+    "url": "git+https://github.com/AtFlun/desktop-builder.git"
   },
   "gitee": {
     "type": "git",
-    "url": "git+https://gitee.com/OpenFlun/desktop-builder.git"
+    "url": "git+https://gitee.com/AtFlun/desktop-builder.git"
   },
-  "homepage": "https://github.com/OpenFlun/desktop-builder#readme",
+  "homepage": "https://github.com/AtFlun/desktop-builder#readme",
   "bugs": {
-    "url": "https://github.com/OpenFlun/desktop-builder/issues"
+    "url": "https://github.com/AtFlun/desktop-builder/issues"
   },
   "publishConfig": {
     "access": "public"

@@ -766,7 +766,7 @@ Name: "defenderExclusion"; Description: "将应用加入 Windows Defender 排除
 
             let latestTag, asset;
             try {
-                const res = await fetch('https://gitee.com/api/v5/repos/OpenFlun/inno-setup/releases/latest');
+                const res = await fetch('https://gitee.com/api/v5/repos/AtFlun/inno-setup/releases/latest');
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 const data = await res.json();
                 latestTag = data.tag_name, asset = data.assets.find(a => a.name === `${innoDirName}.zip`);
