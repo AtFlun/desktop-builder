@@ -1,5 +1,9 @@
 ﻿# 变更日志
 
+## [6.6.6] - 2026-11-21 19:09
+### 变更
+- 本仓库地址中的用户名由 OpenFlun 改为 AtFlun,请注意!!!;
+
 ## [6.6.5] - 2026-11-20 21:40
 ### 优化
 - 优化了一些细节;
@@ -15,9 +19,3 @@
   再统一检查 `binding.gyp` 与白名单,消除两段几乎相同的分支;
 - 逻辑随 `if (shouldInstall)` 下移后,不再需要 `npmRebuildCfg && shouldInstall` 短路判断,
   代码结构与「是否重装」一一对应;
-
-## [6.6.3] - 2026-11-20 19:29
-### 新增
-- `nativeModules.npmRebuild` 开启时,安装依赖前扫描用户项目 `node_modules`(含 `@scope` 子目录)中带 `binding.gyp` 的包,
-  无条件并入根 `package.json` 的 `allowScripts`,使 `npm install` 放行其 install 脚本;传递依赖中的原生模块(如 `bcrypt`)一并覆盖;
-- 仅在确有新增时回写,并打印绿色提示 `原生模块[<包名>, ...]无条件加入allowScripts白名单`,多个模块合并为一行、逗号分隔;
